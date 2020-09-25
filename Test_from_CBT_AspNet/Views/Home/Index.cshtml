@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Test_from_CBT_AspNet.Areas.Identity.Data.AspNetEvents>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="content">
+        @{
+            foreach (var item in Model)
+            {
+                @*<div class="event-bloc">
+                        <div class="event-block">
+                            <div class="event-block-col-1">
+                                <p>@item.CompanyName</p>
+                            </div>
+                            <div class="event-block-col-2">
+                                <div class="event-block-col-2-row">
+                                    <p>@item.Text</p>
+                                </div>
+                                <div class="event-block-col-2-row">
+                                    <p>@item.Topic</p>
+                                </div>
+                            </div>
+                            <div class="event-block-col-3">
+                                <div style="display: flex;">
+                                    <img src="~/images/location-png.png" height="30" width="20p" style="margin-right:10px;" />
+                                    <p>@item.Location</p>
+                                </div>
+                                <p>@item.Date</p>
+                            </div>
+                            <div class="event-block-col-4">
+                                <a href="#">Иду!</a>
+                            </div>
+                        </div>
+
+                        <hr class="event-block-hr" />
+                    </div>*@
+
+                <div class="card-deck">
+                    <div class="card  bg-dark" style="max-width: 300px;">
+                        @if (item.Images is null)
+                        {
+                            <img class="card-img-top" src="~/images/image-not-found.png" alt="Card image cap">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@item.Images" alt="Card image cap">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title text-light">@item.Text</h5>
+                            <p class="card-text text-light">@item.Description</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">@item.CompanyName @item.Date</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
